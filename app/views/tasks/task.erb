@@ -1,0 +1,20 @@
+<div class="col-md-6 col-md-offset-3 main-content">
+  <h1>Welcome to Motherhood Task, <%=current_user.username %>!</h1>
+    <% @tasks.each do |task| %>
+      <h3><a href="task/<%= task.id%>"><%= task.name %></a>
+    <% end %>
+<br><br>
+
+<!--Textarea with icon prefix-->
+  <div class="md-form amber-textarea active-amber-textarea">
+    <i class="fa fa-pencil prefix"></i>
+    <textarea type="text" id="form22" class="md-textarea form-control" rows="3"></textarea>
+    <!-- <a class="btn btn-sm btn-primary" href="/task/new">Create</a> -->
+    <a href= href="/task/new"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a href= href="/task/edit"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a href= href="/task/delete"><span class="glyphicon glyphicon-trash"></span></a>
+    <a href= href="/logout"><span class="glyphicon glyphicon-off"></span></a>
+     <!-- <a class="btn btn-sm btn-primary" href="/task/delete">Delete</a> -->
+    <!-- <a class="btn btn-sm btn-primary"href="/logout">Log Out</a> -->
+  </div>
+</div>

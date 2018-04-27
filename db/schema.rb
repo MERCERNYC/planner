@@ -12,14 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2018_04_26_173922) do
 
-  create_table "lists", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
-  end
-
   create_table "tasks", force: :cascade do |t|
     t.string "name"
-    t.integer "list_id"
     t.integer "user_id"
   end
 
