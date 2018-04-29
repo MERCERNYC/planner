@@ -1,0 +1,8 @@
+<p><%= @task.name%>
+
+<form method="post" action="/task/<%=@task.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Task">
+</form>
+
+<a href="/task/<%=@task.id%>/edit">Edit Task </a>

@@ -1,42 +1,59 @@
-require 'rack-flash'
 
 class UsersController < ApplicationController
-  use Rack::Flash
 
   get '/signup' do
-    if logged_in?
-      redirect '/task'
-    else
-    flash[:message] = "Please signup."
     erb :'users/signup'
-    end
   end
 
   post '/signup' do
-    if params[:username] == "" || params[:email] == "" || params[:password] == ""
-      redirect '/signup'
-    else
-      @user = User.create(:username => params[:username], :email=> params[:email], :password => params[:password])
+    @user = User.new(params)
+    if @user.save
       session[:user_id] = @user.id
-      redirect '/task'
+      redirect to "/tasks"
+       #validations passed
+    else
+      erb :'users/signup'
+        #validations failed
     end
+    # if params[:username] == "" || params[:email] == "" || params[:password] == ""
+    #   redirect '/signup'
+    # else
+    #   @user = User.create(:username => params[:username], :email=> params[:email], :password => params[:password])
+    #   session[:user_id] = @user.id
+    #
+    #   redirect '/task'
+    # end
   end
+  #
+  # post '/signup' do
+  #  @user = User.new
+  #  @user.username = params[:username]
+  #  @user.email = params[:email]
+  #  @user.password = params[:password]
+  #  if @user.save
+  #    redirect '/login'
+  #  else
+  #    erb :'users/signup' #we render instead of redirect when the current request has the data we need if we dont need the data anymore we can redirect
+  #   end
+  # end
+
+
 
   get '/login' do
     if logged_in?
-      redirect '/task'
+      redirect '/tasks'
     else
       erb :'users/login'
     end
   end
 
   post '/login' do
-    @user = User.find_by(:username => params[:username])
+    @user = User.find_by(:email => params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect '/task'
+      redirect '/tasks'
     else
-      redirec '/login'
+      redirect '/signup'
     end
   end
 
