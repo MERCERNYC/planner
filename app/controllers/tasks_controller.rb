@@ -11,7 +11,7 @@ class TasksController < ApplicationController
 #request to load the form
   get '/tasks/new' do
     if logged_in?
-      erb :'tasks/create'
+      erb :'tasks/new'
     else
       redirect to '/login'
     end
@@ -19,36 +19,55 @@ class TasksController < ApplicationController
 
 #create a new task
   post '/tasks' do
-    @tasks = Task.create(:name => params[:name])
-    redirect "/tasks/#{@tasks.id}"
+    if logged_in?
+      @tasks = Task.create(:name => params[:name])
+      redirect "/tasks/#{@tasks.id}"
+    else
+      erb '/tasks/create'
+    end
   end
 
   get '/tasks/:id' do
     if logged_in?
     @tasks = Task.find_by(params[:id])
      erb :"tasks/show"
-   end
+    else
+      redirect '/login'
+    end
   end
 
 #show action
 #load edit form
   get '/tasks/:id/edit' do
-    @tasks = Task.find_by(params[:id])
-    erb :"tasks/edit"
+    if logged_in?
+     @tasks = Task.find_by(params[:id])
+      erb :"tasks/edit"
+    else
+     redirect to '/login'
+    end
   end
 
 #edit action
   patch '/tasks/:id' do
+    if logged_in?
      @tasks = Task.find_by(params[:id])
      @tasks.name = params[:name]
      @tasks.save
-     redirect to '/tasks'
+     erb :'tasks/show'
+     # redirect to "/tasks/#{@tasks.id}"
+    else
+     redirect to "/tasks/#{@tasks.id}/edit"
+    end
   end
 
   delete '/tasks/:id/delete' do
-    @tasks = Task.find_by(params[:id])
-    @tasks.delete
-    redirect to '/tasks'
+    if logged_in?
+      @tasks = Task.find_by_id(params[:id])
+      @tasks.delete
+      redirect to '/tasks'
+    else
+     redirect to '/login'
+    end
   end
 
 end

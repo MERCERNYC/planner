@@ -15,29 +15,7 @@ class UsersController < ApplicationController
       erb :'users/signup'
         #validations failed
     end
-    # if params[:username] == "" || params[:email] == "" || params[:password] == ""
-    #   redirect '/signup'
-    # else
-    #   @user = User.create(:username => params[:username], :email=> params[:email], :password => params[:password])
-    #   session[:user_id] = @user.id
-    #
-    #   redirect '/task'
-    # end
   end
-  #
-  # post '/signup' do
-  #  @user = User.new
-  #  @user.username = params[:username]
-  #  @user.email = params[:email]
-  #  @user.password = params[:password]
-  #  if @user.save
-  #    redirect '/login'
-  #  else
-  #    erb :'users/signup' #we render instead of redirect when the current request has the data we need if we dont need the data anymore we can redirect
-  #   end
-  # end
-
-
 
   get '/login' do
     if logged_in?
