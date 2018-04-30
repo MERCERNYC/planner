@@ -1,6 +1,6 @@
-Motherhood_Checklist
+Planner
 
-A Sinatra web app for creating a core list for moms.
+Planner is Sinatra web app with the purpose to help mom-to-be to create tasks and plan ahead by trimester, so every time you head to a doctor’s appointment you feel 100 percent prepared.
 
 Installation
 

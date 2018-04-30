@@ -1,11 +1,10 @@
-require 'rack-flash'
+
 class TasksController < ApplicationController
-  use Rack::Flash
 
 #allows the view to access all the posts in the database through the instance variable @tasks
 #index action
   get '/tasks'do #list all tasks
-    @tasks = Task.all
+    @tasks = current_user.tasks
     erb :'tasks/index'
   end
 
@@ -21,7 +20,7 @@ class TasksController < ApplicationController
 
   get '/tasks/:id' do #show task
     if logged_in?
-    @tasks = Task.find_by(params[:id])
+    @tasks = Task.find_by(:id => params[:id])
      erb :"tasks/show"
     else
       redirect '/login'
@@ -42,24 +41,23 @@ class TasksController < ApplicationController
 #load edit form
   get '/tasks/:id/edit' do
     if logged_in?
-     @tasks = Task.find_by(params[:id])
-     @tasks && @tasks.user == current_user
-      erb :"tasks/edit"
+    @tasks = Task.find_by(:id => params[:id])
+    if current_user.id == @tasks.user_id
+    erb :"tasks/edit"
     else
+     flash[:notice] = "You are not authorized to edit this task."
      redirect to '/login'
-    end
+   end
+   end
   end
 
 #edit action
   patch '/tasks/:id' do
     if logged_in?
-     @tasks = Task.find_by(params[:id])
+     @tasks = Task.find_by(:id => params[:id])
      @tasks.name = params[:name]
      if @tasks.save
-     flash[:message] = "Your Task Has Been Succesfully Updated"
-     # redirect to "/tasks/#{@tasks.id}/edit"
-     # erb :'tasks/show'
-     # redirect to "/tasks/#{@tasks.id}"
+     flash[:notice] = "Your Task Has Been Succesfully Updated"
      redirect to '/tasks'
     else
      redirect to "/tasks/#{@tasks.id}/edit"
@@ -69,9 +67,10 @@ class TasksController < ApplicationController
 
   delete '/tasks/:id/delete' do
     if logged_in?
-      @tasks = Task.find_by_id(params[:id])
+     @tasks = Task.find_by(:id => params[:id])
+    if current_user.id == @tasks.user_id
       @tasks.delete
-      flash[:message] = "Task successfully removed!"
+      flash[:notice] = "Task successfully removed!"
       redirect to '/tasks'
     else
      redirect to '/login'

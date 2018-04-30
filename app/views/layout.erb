@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Motherhood Tasks</title>
+  <title>PLANNER</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
@@ -12,6 +12,9 @@
     </style>
 </head>
 <body>
+  <% if flash[:notice] %>
+  <%= flash[:notice] %>
+  <% end %>
   <%= yield %>
 </body>
 </html>
