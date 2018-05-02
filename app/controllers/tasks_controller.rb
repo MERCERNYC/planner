@@ -1,4 +1,3 @@
-
 class TasksController < ApplicationController
 
 #allows the view to access all the posts in the database through the instance variable @tasks
@@ -62,23 +61,23 @@ class TasksController < ApplicationController
      if @task.save
      flash[:notice] = "Your Task Has Been Succesfully Updated"
      redirect to '/tasks'
-    else
+     else
      redirect to "/tasks/#{@task.id}/edit"
-    end
+     end
     end
   end
 
   delete '/tasks/:id/delete' do
     if logged_in?
-     @task = Task.find_by(:id => params[:id])
-    if current_user.id == @task.user_id
-      @task.delete
-      flash[:notice] = "Task successfully removed!"
-      redirect to '/tasks'
-    else
+    @task = Task.find_by(:id => params[:id])
+     if current_user.id == @task.user_id
+     @task.delete
+     flash[:notice] = "Task successfully removed!"
+     redirect to '/tasks'
+     else
      redirect to '/login'
+     end
     end
-  end
   end
 
 end

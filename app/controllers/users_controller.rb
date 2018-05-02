@@ -1,4 +1,3 @@
-
 class UsersController < ApplicationController
 
   get '/signup' do
@@ -32,16 +31,17 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/tasks'
     else
+      flash[:notice] = "Please sign up to Planner before login."
       redirect '/signup'
     end
   end
 
   get '/logout' do
     if logged_in?
-        session.clear
-        redirect '/login'
-      else
-        redirect '/'
+      session.clear
+      redirect '/login'
+    else
+      redirect '/'
     end
   end
 
