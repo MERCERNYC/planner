@@ -1,8 +1,19 @@
-<p><%= @task.name%>
+<div class="text-center">
+    <h3 style="color: rgb(255,110,110)">Task Added : <%= @task.name%></h3>
 
-<form method="post" action="/tasks/<%=@task.id%>/delete">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="delete">
-</form>
+  <form method="post" action="/tasks/<%=@task.id%>/delete">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
 
-<a href="/tasks/<%=@task.id%>/edit">Edit Task </a>
+    <!-- <button type="button" class="btn btn-info">
+      <input type="submit" value="delete"><span class="glyphicon glyphicon-delete"></span> Delete</a>
+    </button> -->
+
+    <button type="submit" class="btn btn-danger">Delete Task</button>
+   <!-- <input type="submit" value="delete">
+    -->
+    <button type="button" class="btn btn-info">
+      <a href="/tasks/<%=@task.id%>/edit"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+    </button>
+
+  </form>
+</div>

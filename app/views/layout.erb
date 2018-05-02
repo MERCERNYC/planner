@@ -5,16 +5,26 @@
   <title>PLANNER</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-      .error {
-       color: red;
-      }
-    </style>
 </head>
 <body>
+
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="color: rgb(255,110,110)">Planner+</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/tasks">Home</a></li>
+      <li><a href="/tasks">Tasks</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
   <% if flash[:notice] %>
   <%= flash[:notice] %>
   <% end %>
+
   <%= yield %>
 </body>
 </html>

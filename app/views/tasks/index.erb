@@ -1,12 +1,15 @@
 <div class="col-md-6 col-md-offset-3 main-content">
-<h1>Welcome, <%=current_user.username %>!</h1>
+
+<h1 class="text-center" style="color: rgb(255,110,110)">Welcome to Planner, <%=current_user.username %>!</h1>
+<br>
+<div h1 class="text-center">
 <% @tasks.each do |task| %>
   <h3><a href="tasks/<%= task.id%>"><%= task.name %></a>
 <% end %>
 <br><br>
 
 <a class="btn btn-sm btn-primary" href="/tasks/new">Create Task</a>
+</div>
 
-<a class="btn btn-sm btn-primary"href="/logout">Log Out</a>
 </div>
 </div>
