@@ -11,7 +11,6 @@ class UsersController < ApplicationController
       redirect to "/tasks"
        #validations passed
     else
-      flash[:notice] = "These field are required to signup."
       erb :'users/signup'
         #validations failed
     end

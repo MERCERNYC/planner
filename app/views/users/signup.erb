@@ -2,7 +2,7 @@
   <div id="grad1">
    <h2>Sign up for Planner</h2><br>
 
-   <%="<p class='error'>Must fill out email and password</p>" if @user && @user.errors.any?%>
+   <%="<p class='error'>Must fill out username, email and password</p>" if @user && @user.errors.any?%>
 
   <form class="form-inline" action="/signup" method="POST">
     <div class="form-group">
