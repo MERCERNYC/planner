@@ -25,16 +25,6 @@ class ApplicationController < Sinatra::Base
       def current_user
         @current_user ||= User.find_by(:id => session[:user_id]) if session[:user_id]
       end
-        #
-        # def login(email,password)
-        #   #check if the user with this email actually exist
-        #   #if so set the session
-        #   user = User.find_by(:email => email)
-        #   if user && user.authenticate(password)
-        #     session[:email] = user.email
-        #   else
-        #     redirect '/login'
-        #   end
-        # end
+
     end
   end
