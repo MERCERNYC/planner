@@ -1,6 +1,6 @@
-Planner
+Planner Web App
 
-Planner is Sinatra web app with the purpose to help mom-to-be to create tasks and plan ahead by trimester, so every time you head to a doctor’s appointment you feel 100 percent prepared.
+Planner is Sinatra web app that function like a todo list with the purpose to help moms-to-be to create tasks and plan ahead.
 
 Installation
 
