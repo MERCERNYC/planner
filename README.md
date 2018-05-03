@@ -1,6 +1,6 @@
 Planner Web App
 
-Planner is a functional and simple web app that works like a todo list.  As a mom, I built this app with moms-to-be in mind where they can have their personal day-to-day tasks planned ahead.
+Planner is a functional and simple web app that works like a todo list.  As a mom, I built this app with moms-to-be in mind where they can manage their personal day-to-day tasks.
 
 Installation
 
