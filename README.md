@@ -1,6 +1,6 @@
 Planner Web App
 
-Planner is Sinatra web app that function like a todo list with the purpose to help moms-to-be to create tasks and plan ahead.
+Planner is a functional and simple web app that works like a todo list.  As a mom, I built this app with moms-to-be in mind where they can have their personal day-to-day tasks planned ahead.
 
 Installation
 
