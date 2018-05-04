@@ -10,7 +10,9 @@ Run rake db:migrate to set up the DataBase
 Run rackup to start the server
 
 Contributions
+
 Create a descriptive pull request
 
 License
+
 Standard MIT license located at ./LICENSE
