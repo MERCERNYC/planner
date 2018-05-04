@@ -1,8 +1,8 @@
 <h2 class="text-center" style="color: rgb(255,110,110)"> Edit Task </h2>
-<div class="text-center">
-<form method="post" action="/tasks/<%=@task.id%>">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <input type="text" name="name" value="<%= @task.name %>">
-  <input type="submit" value="submit">
-</form>
-</div>
+  <div class="text-center">
+    <form method="post" action="/tasks/<%=@task.id%>">
+      <input id="hidden" type="hidden" name="_method" value="PATCH">
+      <input type="text" name="name" value="<%= @task.name %>">
+      <input type="submit" value="submit">
+    </form>
+  </div>
