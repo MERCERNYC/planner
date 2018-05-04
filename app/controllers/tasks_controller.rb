@@ -6,7 +6,9 @@ class TasksController < ApplicationController
     if logged_in?
     @tasks = current_user.tasks
     erb :'tasks/index'
-  end
+    else
+    redirect to '/signup'
+   end
   end
 
 #new action
