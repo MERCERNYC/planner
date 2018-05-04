@@ -1,14 +1,11 @@
 <div class="text-center">
-    <h3 style="color: rgb(255,110,110)">Task Added : <%= @task.name%></h3>
+  <h3 style="color: rgb(255,110,110)">Task Added : <%= @task.name%></h3>
 
-  <form method="post" action="/tasks/<%=@task.id%>/delete">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-
-    <button type="submit" class="btn btn-danger">Delete Task</button>
-
-    <button type="button" class="btn btn-info">
+    <form method="post" action="/tasks/<%=@task.id%>/delete">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <button type="submit" class="btn btn-danger">Delete Task</button>
+      <button type="button" class="btn btn-info">
       <a href="/tasks/<%=@task.id%>/edit"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-    </button>
-
-  </form>
+      </button>
+    </form>
 </div>
