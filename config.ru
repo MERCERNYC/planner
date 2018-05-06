@@ -1,4 +1,4 @@
-require_relative './config/environment'
+require './config/environment' #tux worked after I used required 
 
 use Rack::MethodOverride
 use UsersController
