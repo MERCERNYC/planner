@@ -1,18 +1,16 @@
-Planner Web App
+# Planner Web App
 
-Planner is a functional and simple web app that works like a todo list.  As a mom, I built this app with moms-to-be in mind where they can manage their personal day-to-day tasks.
+Planner is a functional  web app that works like a todo list where a user can manage their personal day-to-day tasks.
 
-Installation
+## Installation
 
-Fork and clone the repo
-Run bundle install to get all the dependencies
-Run rake db:migrate to set up the DataBase
-Run rackup to start the server
+-Fork and clone the repo
+-Run bundle install to get all the dependencies
+-Run rake db:migrate to set up the DataBase
+-Run rackup to start the server
 
-Contributions
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/'MERCERNYC'/planner. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-Create a descriptive pull request
-
-License
-
-Standard MIT license located at ./LICENSE
+## License
+The gem is available as open source under the terms of the MIT License.
